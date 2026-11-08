@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A lightweight, privacy-friendly collection of everyday developer tools that run in your browser.">
+  <title>DevKit Lite — Browser Developer Tools</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#" aria-label="DevKit Lite home"><span class="brand-mark">D</span> DevKit Lite</a>
+    <span class="privacy-note">Runs locally in your browser · No uploads</span>
+  </header>
+
+  <main class="container">
+    <section class="intro">
+      <p class="eyebrow">A SMALL TOOLBOX FOR DEVELOPERS</p>
+      <h1>Useful tools.<br><span>No unnecessary complexity.</span></h1>
+      <p class="lead">Format JSON, encode text, and inspect text quickly. Your input stays in this browser.</p>
+    </section>
+
+    <nav class="tabs" aria-label="Tools">
+      <button class="tab active" data-tool="json" type="button">JSON formatter</button>
+      <button class="tab" data-tool="base64" type="button">Base64</button>
+      <button class="tab" data-tool="url" type="button">URL encoder</button>
+      <button class="tab" data-tool="text" type="button">Text stats</button>
+    </nav>
+
+    <section class="tool-panel" id="json-panel">
+      <div class="panel-heading"><div><p class="eyebrow">01 / JSON</p><h2>Format and validate JSON</h2></div><span class="status" id="json-status" aria-live="polite">Ready</span></div>
+      <label for="json-input">Input</label>
+      <textarea id="json-input" spellcheck="false" placeholder='{"project":"DevKit Lite","openSource":true}'></textarea>
+      <div class="actions"><button class="primary" id="json-format">Format JSON</button><button class="secondary" id="json-minify">Minify</button><button class="secondary" id="json-clear">Clear</button></div>
+      <label for="json-output">Output</label>
+      <textarea id="json-output" spellcheck="false" readonly placeholder="Formatted output appears here..."></textarea>
+      <button class="text-button" data-copy="json-output" type="button">Copy output</button>
+    </section>
+
+    <section class="tool-panel hidden" id="base64-panel">
+      <div class="panel-heading"><div><p class="eyebrow">02 / BASE64</p><h2>Encode or decode Base64</h2></div><span class="status" id="base64-status" aria-live="polite">Ready</span></div>
+      <label for="base64-input">Text</label><textarea id="base64-input" placeholder="Enter text to encode or Base64 to decode..."></textarea>
+      <div class="actions"><button class="primary" id="base64-encode">Encode</button><button class="secondary" id="base64-decode">Decode</button><button class="secondary" id="base64-clear">Clear</button></div>
+      <label for="base64-output">Result</label><textarea id="base64-output" readonly placeholder="Result appears here..."></textarea>
+      <button class="text-button" data-copy="base64-output" type="button">Copy result</button>
+    </section>
+
+    <section class="tool-panel hidden" id="url-panel">
+      <div class="panel-heading"><div><p class="eyebrow">03 / URL</p><h2>Encode or decode URL text</h2></div><span class="status" id="url-status" aria-live="polite">Ready</span></div>
+      <label for="url-input">Text or URL component</label><textarea id="url-input" placeholder="Enter text or an encoded URL component..."></textarea>
+      <div class="actions"><button class="primary" id="url-encode">Encode</button><button class="secondary" id="url-decode">Decode</button><button class="secondary" id="url-clear">Clear</button></div>
+      <label for="url-output">Result</label><textarea id="url-output" readonly placeholder="Result appears here..."></textarea>
+      <button class="text-button" data-copy="url-output" type="button">Copy result</button>
+    </section>
+
+    <section class="tool-panel hidden" id="text-panel">
+      <div class="panel-heading"><div><p class="eyebrow">04 / TEXT</p><h2>Inspect text statistics</h2></div><span class="status">Updates as you type</span></div>
+      <label for="text-input">Your text</label><textarea id="text-input" placeholder="Paste or type text here..."></textarea>
+      <div class="stats">
+        <article><span id="char-count">0</span><small>Characters</small></article>
+        <article><span id="word-count">0</span><small>Words</small></article>
+        <article><span id="line-count">0</span><small>Lines</small></article>
+        <article><span id="reading-time">0 min</span><small>Reading time</small></article>
+      </div>
+      <button class="secondary" id="text-clear">Clear</button>
+    </section>
+
+    <p class="notice" id="notice" role="status" aria-live="polite"></p>
+  </main>
+  <footer><span>DevKit Lite</span><span>Free · Open source · Browser-based</span></footer>
+</body>
+</html>
